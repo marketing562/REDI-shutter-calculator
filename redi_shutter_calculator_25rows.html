@@ -1,304 +1,87 @@
 
-<div style="max-width:1000px;margin:auto;font-family:sans-serif;">
-<h2>REDI Shutter Calculator</h2>
-<table border="1" cellpadding="5" style="width:100%;border-collapse:collapse;text-align:center;">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Width (in)</th>
-            <th>Height (in)</th>
-            <th>Item Code</th>
-        </tr>
-    </thead>
-    <tbody>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REDI Shutter Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #000; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
+        input { width: 80px; padding: 4px; }
+    </style>
+</head>
+<body>
+    <h1>REDI Shutter Calculator</h1>
+    <table id="shutterTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Width (in)</th>
+                <th>Height (in)</th>
+                <th>Item Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><input type='number' id='width_1'></td><td><input type='number' id='height_1'></td><td id='itemCode_1'>-</td></tr>
+<tr><td>2</td><td><input type='number' id='width_2'></td><td><input type='number' id='height_2'></td><td id='itemCode_2'>-</td></tr>
+<tr><td>3</td><td><input type='number' id='width_3'></td><td><input type='number' id='height_3'></td><td id='itemCode_3'>-</td></tr>
+<tr><td>4</td><td><input type='number' id='width_4'></td><td><input type='number' id='height_4'></td><td id='itemCode_4'>-</td></tr>
+<tr><td>5</td><td><input type='number' id='width_5'></td><td><input type='number' id='height_5'></td><td id='itemCode_5'>-</td></tr>
+<tr><td>6</td><td><input type='number' id='width_6'></td><td><input type='number' id='height_6'></td><td id='itemCode_6'>-</td></tr>
+<tr><td>7</td><td><input type='number' id='width_7'></td><td><input type='number' id='height_7'></td><td id='itemCode_7'>-</td></tr>
+<tr><td>8</td><td><input type='number' id='width_8'></td><td><input type='number' id='height_8'></td><td id='itemCode_8'>-</td></tr>
+<tr><td>9</td><td><input type='number' id='width_9'></td><td><input type='number' id='height_9'></td><td id='itemCode_9'>-</td></tr>
+<tr><td>10</td><td><input type='number' id='width_10'></td><td><input type='number' id='height_10'></td><td id='itemCode_10'>-</td></tr>
+<tr><td>11</td><td><input type='number' id='width_11'></td><td><input type='number' id='height_11'></td><td id='itemCode_11'>-</td></tr>
+<tr><td>12</td><td><input type='number' id='width_12'></td><td><input type='number' id='height_12'></td><td id='itemCode_12'>-</td></tr>
+<tr><td>13</td><td><input type='number' id='width_13'></td><td><input type='number' id='height_13'></td><td id='itemCode_13'>-</td></tr>
+<tr><td>14</td><td><input type='number' id='width_14'></td><td><input type='number' id='height_14'></td><td id='itemCode_14'>-</td></tr>
+<tr><td>15</td><td><input type='number' id='width_15'></td><td><input type='number' id='height_15'></td><td id='itemCode_15'>-</td></tr>
+<tr><td>16</td><td><input type='number' id='width_16'></td><td><input type='number' id='height_16'></td><td id='itemCode_16'>-</td></tr>
+<tr><td>17</td><td><input type='number' id='width_17'></td><td><input type='number' id='height_17'></td><td id='itemCode_17'>-</td></tr>
+<tr><td>18</td><td><input type='number' id='width_18'></td><td><input type='number' id='height_18'></td><td id='itemCode_18'>-</td></tr>
+<tr><td>19</td><td><input type='number' id='width_19'></td><td><input type='number' id='height_19'></td><td id='itemCode_19'>-</td></tr>
+<tr><td>20</td><td><input type='number' id='width_20'></td><td><input type='number' id='height_20'></td><td id='itemCode_20'>-</td></tr>
+<tr><td>21</td><td><input type='number' id='width_21'></td><td><input type='number' id='height_21'></td><td id='itemCode_21'>-</td></tr>
+<tr><td>22</td><td><input type='number' id='width_22'></td><td><input type='number' id='height_22'></td><td id='itemCode_22'>-</td></tr>
+<tr><td>23</td><td><input type='number' id='width_23'></td><td><input type='number' id='height_23'></td><td id='itemCode_23'>-</td></tr>
+<tr><td>24</td><td><input type='number' id='width_24'></td><td><input type='number' id='height_24'></td><td id='itemCode_24'>-</td></tr>
+<tr><td>25</td><td><input type='number' id='width_25'></td><td><input type='number' id='height_25'></td><td id='itemCode_25'>-</td></tr>
+        </tbody>
+    </table>
+    <script>
+        function determineItemCode(width, height) {
+            if (width >= 27 && width <= 37 && height >= 63 && height <= 67) {
+                return "RS-25x55";
+            }
+            return "Need Custom Order";
+        }
 
-        <tr>
-            <td>1</td>
-            <td><input type="number" id="w1" onchange="checkSKU(1)"></td>
-            <td><input type="number" id="h1" onchange="checkSKU(1)"></td>
-            <td id="sku1">-</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><input type="number" id="w2" onchange="checkSKU(2)"></td>
-            <td><input type="number" id="h2" onchange="checkSKU(2)"></td>
-            <td id="sku2">-</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><input type="number" id="w3" onchange="checkSKU(3)"></td>
-            <td><input type="number" id="h3" onchange="checkSKU(3)"></td>
-            <td id="sku3">-</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td><input type="number" id="w4" onchange="checkSKU(4)"></td>
-            <td><input type="number" id="h4" onchange="checkSKU(4)"></td>
-            <td id="sku4">-</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td><input type="number" id="w5" onchange="checkSKU(5)"></td>
-            <td><input type="number" id="h5" onchange="checkSKU(5)"></td>
-            <td id="sku5">-</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td><input type="number" id="w6" onchange="checkSKU(6)"></td>
-            <td><input type="number" id="h6" onchange="checkSKU(6)"></td>
-            <td id="sku6">-</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td><input type="number" id="w7" onchange="checkSKU(7)"></td>
-            <td><input type="number" id="h7" onchange="checkSKU(7)"></td>
-            <td id="sku7">-</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td><input type="number" id="w8" onchange="checkSKU(8)"></td>
-            <td><input type="number" id="h8" onchange="checkSKU(8)"></td>
-            <td id="sku8">-</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td><input type="number" id="w9" onchange="checkSKU(9)"></td>
-            <td><input type="number" id="h9" onchange="checkSKU(9)"></td>
-            <td id="sku9">-</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td><input type="number" id="w10" onchange="checkSKU(10)"></td>
-            <td><input type="number" id="h10" onchange="checkSKU(10)"></td>
-            <td id="sku10">-</td>
-        </tr>
-        <tr>
-            <td>11</td>
-            <td><input type="number" id="w11" onchange="checkSKU(11)"></td>
-            <td><input type="number" id="h11" onchange="checkSKU(11)"></td>
-            <td id="sku11">-</td>
-        </tr>
-        <tr>
-            <td>12</td>
-            <td><input type="number" id="w12" onchange="checkSKU(12)"></td>
-            <td><input type="number" id="h12" onchange="checkSKU(12)"></td>
-            <td id="sku12">-</td>
-        </tr>
-        <tr>
-            <td>13</td>
-            <td><input type="number" id="w13" onchange="checkSKU(13)"></td>
-            <td><input type="number" id="h13" onchange="checkSKU(13)"></td>
-            <td id="sku13">-</td>
-        </tr>
-        <tr>
-            <td>14</td>
-            <td><input type="number" id="w14" onchange="checkSKU(14)"></td>
-            <td><input type="number" id="h14" onchange="checkSKU(14)"></td>
-            <td id="sku14">-</td>
-        </tr>
-        <tr>
-            <td>15</td>
-            <td><input type="number" id="w15" onchange="checkSKU(15)"></td>
-            <td><input type="number" id="h15" onchange="checkSKU(15)"></td>
-            <td id="sku15">-</td>
-        </tr>
-        <tr>
-            <td>16</td>
-            <td><input type="number" id="w16" onchange="checkSKU(16)"></td>
-            <td><input type="number" id="h16" onchange="checkSKU(16)"></td>
-            <td id="sku16">-</td>
-        </tr>
-        <tr>
-            <td>17</td>
-            <td><input type="number" id="w17" onchange="checkSKU(17)"></td>
-            <td><input type="number" id="h17" onchange="checkSKU(17)"></td>
-            <td id="sku17">-</td>
-        </tr>
-        <tr>
-            <td>18</td>
-            <td><input type="number" id="w18" onchange="checkSKU(18)"></td>
-            <td><input type="number" id="h18" onchange="checkSKU(18)"></td>
-            <td id="sku18">-</td>
-        </tr>
-        <tr>
-            <td>19</td>
-            <td><input type="number" id="w19" onchange="checkSKU(19)"></td>
-            <td><input type="number" id="h19" onchange="checkSKU(19)"></td>
-            <td id="sku19">-</td>
-        </tr>
-        <tr>
-            <td>20</td>
-            <td><input type="number" id="w20" onchange="checkSKU(20)"></td>
-            <td><input type="number" id="h20" onchange="checkSKU(20)"></td>
-            <td id="sku20">-</td>
-        </tr>
-        <tr>
-            <td>21</td>
-            <td><input type="number" id="w21" onchange="checkSKU(21)"></td>
-            <td><input type="number" id="h21" onchange="checkSKU(21)"></td>
-            <td id="sku21">-</td>
-        </tr>
-        <tr>
-            <td>22</td>
-            <td><input type="number" id="w22" onchange="checkSKU(22)"></td>
-            <td><input type="number" id="h22" onchange="checkSKU(22)"></td>
-            <td id="sku22">-</td>
-        </tr>
-        <tr>
-            <td>23</td>
-            <td><input type="number" id="w23" onchange="checkSKU(23)"></td>
-            <td><input type="number" id="h23" onchange="checkSKU(23)"></td>
-            <td id="sku23">-</td>
-        </tr>
-        <tr>
-            <td>24</td>
-            <td><input type="number" id="w24" onchange="checkSKU(24)"></td>
-            <td><input type="number" id="h24" onchange="checkSKU(24)"></td>
-            <td id="sku24">-</td>
-        </tr>
-        <tr>
-            <td>25</td>
-            <td><input type="number" id="w25" onchange="checkSKU(25)"></td>
-            <td><input type="number" id="h25" onchange="checkSKU(25)"></td>
-            <td id="sku25">-</td>
-        </tr>
-    </tbody>
-</table>
-</div>
-<script>
-function checkSKU(row) {
-    var w = parseFloat(document.getElementById('w' + row).value);
-    var h = parseFloat(document.getElementById('h' + row).value);
-    var sku = "-";
-    if (!isNaN(w) && !isNaN(h)) {
+        function updateItemCodes() {
+            for (let i = 1; i <= 25; i++) {
+                const widthInput = document.getElementById('width_' + i);
+                const heightInput = document.getElementById('height_' + i);
+                const itemCodeCell = document.getElementById('itemCode_' + i);
 
-        if (w >= 15 && w <= 19 && h >= 33 && h <= 37) {
-            sku = "RS-15X3";
+                const width = parseFloat(widthInput.value);
+                const height = parseFloat(heightInput.value);
+
+                if (!isNaN(width) && !isNaN(height)) {
+                    itemCodeCell.textContent = determineItemCode(width, height);
+                } else {
+                    itemCodeCell.textContent = "-";
+                }
+            }
         }
-        if (w >= 15 && w <= 19 && h >= 45 && h <= 49) {
-            sku = "RS-15X4";
-        }
-        if (w >= 15 && w <= 19 && h >= 57 && h <= 61) {
-            sku = "RS-15X5";
-        }
-        if (w >= 21 && w <= 25 && h >= 21 && h <= 25) {
-            sku = "RS-2X2";
-        }
-        if (w >= 21 && w <= 25 && h >= 33 && h <= 37) {
-            sku = "RS-2X3";
-        }
-        if (w >= 21 && w <= 25 && h >= 39 && h <= 43) {
-            sku = "RS-2X35";
-        }
-        if (w >= 21 && w <= 25 && h >= 45 && h <= 49) {
-            sku = "RS-2X4";
-        }
-        if (w >= 21 && w <= 25 && h >= 51 && h <= 55) {
-            sku = "RS-2X45";
-        }
-        if (w >= 21 && w <= 25 && h >= 57 && h <= 61) {
-            sku = "RS-2X5";
-        }
-        if (w >= 21 && w <= 25 && h >= 63 && h <= 67) {
-            sku = "RS-2X55";
-        }
-        if (w >= 21 && w <= 25 && h >= 69 && h <= 73) {
-            sku = "RS-2X6";
-        }
-        if (w >= 27 && w <= 31 && h >= 33 && h <= 37) {
-            sku = "RS-25X3";
-        }
-        if (w >= 27 && w <= 31 && h >= 45 && h <= 49) {
-            sku = "RS-25X4";
-        }
-        if (w >= 27 && w <= 31 && h >= 51 && h <= 55) {
-            sku = "RS-25X45";
-        }
-        if (w >= 27 && w <= 31 && h >= 57 && h <= 61) {
-            sku = "RS-25X5";
-        }
-        if (w >= 33 && w <= 37 && h >= 63 && h <= 67) {
-            sku = "RS-25x55";
-        }
-        if (w >= 33 && w <= 37 && h >= 33 && h <= 37) {
-            sku = "RS-3X3";
-        }
-        if (w >= 33 && w <= 37 && h >= 45 && h <= 49) {
-            sku = "RS-3X4";
-        }
-        if (w >= 33 && w <= 37 && h >= 51 && h <= 55) {
-            sku = "RS-3X45";
-        }
-        if (w >= 33 && w <= 37 && h >= 57 && h <= 61) {
-            sku = "RS-3X5";
-        }
-        if (w >= 33 && w <= 37 && h >= 63 && h <= 67) {
-            sku = "RS-3X55";
-        }
-        if (w >= 33 && w <= 37 && h >= 69 && h <= 73) {
-            sku = "RS-3X6";
-        }
-        if (w >= 45 && w <= 49 && h >= 33 && h <= 37) {
-            sku = "RS-4X3";
-        }
-        if (w >= 45 && w <= 49 && h >= 45 && h <= 49) {
-            sku = "RS-4X4";
-        }
-        if (w >= 45 && w <= 49 && h >= 51 && h <= 55) {
-            sku = "RS-4X45";
-        }
-        if (w >= 45 && w <= 49 && h >= 57 && h <= 61) {
-            sku = "RS-4X5";
-        }
-        if (w >= 45 && w <= 49 && h >= 63 && h <= 67) {
-            sku = "RS-4X55";
-        }
-        if (w >= 45 && w <= 49 && h >= 69 && h <= 73) {
-            sku = "RS-4X6";
-        }
-        if (w >= 57 && w <= 61 && h >= 33 && h <= 37) {
-            sku = "RS-5X3";
-        }
-        if (w >= 57 && w <= 61 && h >= 45 && h <= 49) {
-            sku = "RS-5X4";
-        }
-        if (w >= 57 && w <= 61 && h >= 57 && h <= 61) {
-            sku = "RS-5X5";
-        }
-        if (w >= 57 && w <= 61 && h >= 63 && h <= 67) {
-            sku = "RS-5X55";
-        }
-        if (w >= 57 && w <= 61 && h >= 69 && h <= 73) {
-            sku = "RS-5X6";
-        }
-        if (w >= 69 && w <= 73 && h >= 33 && h <= 37) {
-            sku = "RS-6X3";
-        }
-        if (w >= 69 && w <= 73 && h >= 45 && h <= 49) {
-            sku = "RS-6X4";
-        }
-        if (w >= 69 && w <= 73 && h >= 57 && h <= 61) {
-            sku = "RS-6X5";
-        }
-        if (w >= 69 && w <= 73 && h >= 63 && h <= 67) {
-            sku = "RS-6X55";
-        }
-        if (w >= 69 && w <= 73 && h >= 69 && h <= 73) {
-            sku = "RS-6X6";
-        }
-        if (w >= 93 && w <= 97 && h >= 33 && h <= 37) {
-            sku = "RS-8X3";
-        }
-        if (w >= 93 && w <= 97 && h >= 45 && h <= 49) {
-            sku = "RS-8X4";
-        }
-        if (w >= 93 && w <= 97 && h >= 57 && h <= 61) {
-            sku = "RS-8X5";
-        }
-        if (sku === "-") {
-            sku = "Need Custom Order";
-        }
-    }
-    document.getElementById('sku' + row).innerText = sku;
-}
-</script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            for (let i = 1; i <= 25; i++) {
+                document.getElementById('width_' + i).addEventListener('input', updateItemCodes);
+                document.getElementById('height_' + i).addEventListener('input', updateItemCodes);
+            }
+        });
+    </script>
+</body>
+</html>
